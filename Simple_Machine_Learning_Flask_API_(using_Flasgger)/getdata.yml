@@ -1,0 +1,37 @@
+    House prediction
+    ---
+    tags:
+        - House Prediction API
+    parameters:
+        - name: area
+          in: query
+          type: number
+          required: true
+        - name: bedroom
+          in: query
+          type: number
+          required: true
+        - name: bath
+          in: query
+          type: number
+          required: true
+        - name: Locality1
+          in: query
+          type: number
+          required: true
+        - name: Locality2
+          in: query
+          type: number
+          required: true
+        - name: Locality3
+          in: query
+          type: number
+          required: true
+        - name: Locality4
+          in: query
+          type: number
+          required: true
+    
+    responses:
+        200:
+            description: House Information Given Successfully

@@ -1,0 +1,26 @@
+[~,~,inputData] = xlsread('linearDataset.csv');
+inputRawData = inputData(2:end,2);
+reqData = [];
+for iCount = 1 : length(inputRawData)
+    if ~strcmp(class(inputRawData{iCount}),'double')
+        reqData = [reqData;70];
+    else
+        reqData = [reqData;inputRawData{iCount}];
+    end
+end
+
+outputData = inputData(2:end,5);
+rangeNeeded = floor(length(reqData) * 0.7);
+
+trainData = cat(2,ones(rangeNeeded,1),reqData(1:rangeNeeded));
+yTrainData = cell2mat(outputData(1:rangeNeeded))/1000;
+
+testData = reqData(rangeNeeded:end);
+yTestData = cell2mat(outputData(rangeNeeded:end))/1000;
+
+alpha = 0.0001 / length(trainData);
+iters = 1000;
+theta = [1;1];
+denimWt = 1 / (2 * length(trainData));
+
+disp('Done')
